@@ -1,7 +1,7 @@
 {
-    "name": "vipsoft/doctrine-data-fixtures-extension",
+    "name": "cocolabs-sas/doctrine-data-fixtures-extension",
     "type": "library",
-    "description": "Doctrine data fixtures extension for Behat",
+    "description": "Doctrine data fixtures extension for Behat. It is a fork of vipsoft/doctrine-data-fixtures-extension",
     "keywords": ["behat", "bdd", "doctrine", "data fixtures"],
     "homepage": "http://github.com/vipsoft/",
     "license": "MIT",
@@ -10,18 +10,22 @@
             "name": "Anthon Pang",
             "email": "apang@softwaredevelopment.ca",
             "role": "developer"
+        },
+        {
+            "name": "Cocolabs",
+            "email": "support@cocorico.io"
         }
     ],
     "require": {
-        "php": ">=5.3.6",
-        "behat/behat": "~3.0",
-        "behat/symfony2-extension": "~2.0",
-        "doctrine/data-fixtures": "~1.0"
+        "php": "^7.1",
+        "behat/behat": "^3.5",
+        "behat/symfony2-extension": "^2.1",
+        "doctrine/data-fixtures": "^1.3"
     },
     "require-dev": {
-        "phpunit/phpunit": "3.7.*",
-        "doctrine/orm": "~2.2,>=2.2.3",
-        "doctrine/doctrine-bundle": "~1.2"
+        "phpunit/phpunit": "^7.5",
+        "doctrine/orm": "^2.5",
+        "doctrine/doctrine-bundle": "^1.8"
     },
     "suggest": {
         "doctrine/migrations": "Uses DBAL to load versioned database schema and migration classes"

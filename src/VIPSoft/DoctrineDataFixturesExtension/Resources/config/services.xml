@@ -39,7 +39,7 @@
             </call>
         </service>
 
-        <service id="behat.doctrine_data_fixtures.service.backup" class="%behat.doctrine_data_fixtures.service.backup.class%">
+        <service id="behat.doctrine_data_fixtures.service.backup" class="%behat.doctrine_data_fixtures.service.backup.class%" public="true">
             <call method="setPlatformBackupMap">
                 <argument type="collection">
                     <argument key="sqlite" type="service" id="behat.doctrine_data_fixtures.service.backup_sqlite"/>
