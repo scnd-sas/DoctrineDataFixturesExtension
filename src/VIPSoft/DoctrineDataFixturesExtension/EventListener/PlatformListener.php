@@ -7,7 +7,7 @@
 namespace VIPSoft\DoctrineDataFixturesExtension\EventListener;
 
 use Doctrine\Common\EventSubscriber;
-use Doctrine\Common\Persistence\Event\LifecycleEventArgs;
+use Doctrine\Persistence\Event\LifecycleEventArgs;
 use Doctrine\DBAL\Platforms\MySqlPlatform;
 
 /**
@@ -28,12 +28,7 @@ class PlatformListener implements EventSubscriber
         );
     }
 
-    /**
-     * Pre-truncate
-     *
-     * @param \Doctrine\Common\Persistence\Event\LifecycleEventArgs $args
-     */
-    public function preTruncate(LifecycleEventArgs $args)
+    public function preTruncate(LifecycleEventArgs $args): void
     {
         $connection = $args->getObjectManager()->getConnection();
         $platform   = $connection->getDatabasePlatform();
@@ -43,12 +38,7 @@ class PlatformListener implements EventSubscriber
         }
     }
 
-    /**
-     * Post-truncate
-     *
-     * @param \Doctrine\Common\Persistence\Event\LifecyleEventArgs $args
-     */
-    public function postTruncate(LifecycleEventArgs $args)
+    public function postTruncate(LifecycleEventArgs $args): void
     {
         $connection = $args->getObjectManager()->getConnection();
         $platform   = $connection->getDatabasePlatform();
