@@ -55,6 +55,9 @@ class Extension implements ExtensionInterface
                 ->arrayNode('fixtures')
                     ->prototype('scalar')->end()
                 ->end()
+                ->booleanNode('use_fixture_loader')
+                    ->defaultValue(false)
+                ->end()
                 ->scalarNode('lifetime')
                     ->defaultValue('feature')
                     ->validate()
@@ -90,6 +93,7 @@ class Extension implements ExtensionInterface
         $container->setParameter('behat.doctrine_data_fixtures.lifetime', $config['lifetime']);
         $container->setParameter('behat.doctrine_data_fixtures.migrations', $config['migrations']);
         $container->setParameter('behat.doctrine_data_fixtures.use_backup', $config['use_backup']);
+        $container->setParameter('behat.doctrine_data_fixtures.use_fixture_loader', $config['use_fixture_loader']);
     }
 
     /**
