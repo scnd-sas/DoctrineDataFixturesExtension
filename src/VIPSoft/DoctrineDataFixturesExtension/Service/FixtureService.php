@@ -59,6 +59,7 @@ class FixtureService
         $this->directories = $container->getParameter('behat.doctrine_data_fixtures.directories');
         $this->migrations = $container->getParameter('behat.doctrine_data_fixtures.migrations');
         $this->useBackup = $container->getParameter('behat.doctrine_data_fixtures.use_backup');
+        $this->useFixtureLoader = $container->getParameter('behat.doctrine_data_fixtures.use_fixture_loader');
         $this->kernel = $kernel;
 
         if ($this->useBackup) {
@@ -100,7 +101,12 @@ class FixtureService
      */
     private function getFixtureLoader()
     {
+
         $container = $this->kernel->getContainer();
+
+        if ($this->useFixtureLoader && $container->get('test.service_container')->has('doctrine.fixtures.loader')) {
+            return $container->get('test.service_container')->get('doctrine.fixtures.loader');
+        }
 
         $loader = class_exists(FixtureLoader::class)
             ? new FixtureLoader($container)
