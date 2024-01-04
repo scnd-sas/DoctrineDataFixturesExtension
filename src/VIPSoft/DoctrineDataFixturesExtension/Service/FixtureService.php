@@ -304,7 +304,7 @@ class FixtureService
      */
     private function dispatchEvent($em, $event)
     {
-        $eventArgs = new LifecycleEventArgs(null, $em);
+        $eventArgs = new LifecycleEventArgs(new \stdClass(), $em);
 
         $em->getEventManager()
             ->dispatchEvent($event, $eventArgs);
@@ -494,6 +494,10 @@ class FixtureService
         $em->clear();
 
         $this->referenceRepository = null;
+
+        if (!is_callable([$em->getMetadataFactory(), 'getCacheDriver'])) {
+            return;
+        }
 
         $cacheDriver = $em->getMetadataFactory()->getCacheDriver();
 
