@@ -1,5 +1,5 @@
 {
-    "name": "cocolabs-sas/doctrine-data-fixtures-extension",
+    "name": "vipsoft/doctrine-data-fixtures-extension",
     "type": "library",
     "description": "Doctrine data fixtures extension for Behat. It is a fork of vipsoft/doctrine-data-fixtures-extension",
     "keywords": ["behat", "bdd", "doctrine", "data fixtures"],
